@@ -3,8 +3,8 @@ locals {
   subnet_id        = "subnet-04f4f48a3a1ce69b9"
   ssh_user         = "ubuntu"
   key_name         = "aws_key"
-  private_key_path = "/home/ubuntu/aws_key.pem"
-  ansible_file_path = "/home/ubuntu/copy.yaml"
+  private_key_path = "/var/lib/jenkins/aws_key.pem"
+  ansible_file_path = "/var/lib/jenkins/copy.yaml"
 }
 
 provider "aws" {
