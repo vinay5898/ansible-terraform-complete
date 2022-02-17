@@ -3,6 +3,7 @@
   become: True
   tasks:
   - name: Ansible copy file to remote server
+    remote_user: ubuntu
     copy:
       src: /home/ubuntu/sample.txt
       dest: /home/ 
