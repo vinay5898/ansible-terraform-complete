@@ -4,7 +4,7 @@ locals {
   ssh_user         = "ubuntu"
   key_name         = "aws_key"
   private_key_path = "/var/lib/jenkins/aws_key.pem"
-#  ansible_file_path = "/var/lib/jenkins/copy.yaml"
+  ansible_file_path = "/var/lib/jenkins/copy.yaml"
 }
 
 provider "aws" {
@@ -57,7 +57,7 @@ resource "aws_instance" "nginx" {
     }
   }
   provisioner "local-exec" {
-    command = "ansible-playbook  -i ${aws_instance.nginx.public_ip}, --private-key ${local.private_key_path} copy.yaml"
+    command = "ansible-playbook  -i ${aws_instance.nginx.public_ip}, --private-key ${local.private_key_path} ${local.ansible_file_path}"
   }
 
 }
